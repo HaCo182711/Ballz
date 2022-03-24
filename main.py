@@ -10,7 +10,7 @@ class circle:
 		self.vel = vel
 
 run = True
-circles = [circle(Math.vec2(15*x+20,15*x+20), 10, Math.vec2(10,10)) for x in range(10)]
+circles = [circle(Math.vec2(10*x+10,10*x+10), 10, Math.vec2(1,1)) for x in range(25)]
 while run:
 	win.update()
 	win.background(pgg.BLACK)
@@ -46,6 +46,8 @@ while run:
 					dir = (c.pos - col.pos).normalized()
 					c.pos = c.pos - dir*(dis/2)
 					col.pos = col.pos + dir*(dis/2)
+					c.vel = c.vel - dir*dis
+					col.vel = col.vel + dir*dis
 					
 		
 
