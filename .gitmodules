@@ -1,0 +1,3 @@
+[submodule "PyGUIgame"]
+	path = PyGUIgame
+	url = https://github.com/HaCo182711/PyGUIgame

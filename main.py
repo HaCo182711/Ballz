@@ -10,7 +10,7 @@ class circle:
 		self.vel = vel
 
 run = True
-circles = [circle(Math.vec2(10*x+10,10*x+10), 10, Math.vec2(1,1)) for x in range(25)]
+circles = [circle(Math.vec2(10*x+10,10*x+10), 10, Math.vec2(1,1)) for x in range(10)]
 while run:
 	win.update()
 	win.background(pgg.BLACK)
@@ -18,24 +18,24 @@ while run:
 	for c in circles:
 		win.draw_circle(pgg.RED, c.pos.tuple(), c.r)
 		
-		c.vel.y += 0.2
+		c.vel.y -= 0.1
 		
 		c.pos = c.pos + c.vel
 		c.vel = c.vel*0.99
 
 		# walls
-		if c.pos.y >= height-c.r:
+		if c.pos.y >= height/2 - c.r:
 			c.vel.y = -c.vel.y
-			c.pos.y = height-c.r
-		if c.pos.y <= c.r:
+			c.pos.y = height/2-c.r
+		if c.pos.y <= -height/2+c.r:
 			c.vel.y = -c.vel.y
-			c.pos.y = c.r
-		if c.pos.x >= width-c.r:
+			c.pos.y = -height/2 + c.r
+		if c.pos.x >= width/2-c.r:
 			c.vel.x = -c.vel.x
-			c.pos.x = width-c.r
-		if c.pos.x <= c.r:
+			c.pos.x = width/2-c.r
+		if c.pos.x <= -width/2 + c.r:
 			c.vel.x = -c.vel.x
-			c.pos.x = c.r
+			c.pos.x = -width/2 + c.r
 
 		# circle collision
 		for col in circles:
