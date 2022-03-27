@@ -4,7 +4,7 @@ import Math
 win = pgg.init(width := 256, height := 256, "Ballz")
 
 class circle:
-	def __init__(self, pos, r, vel):
+	def __init__(self, pos: tuple, r: int, vel: tuple):
 		self.pos = pos
 		self.r = r
 		self.vel = vel
